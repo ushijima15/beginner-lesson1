@@ -38,6 +38,7 @@ $ php artisan passport:install
 ### ビルド
 
 ```bash
+$ npm run watch
 $ php artisan serve
 Laravel development server started: <http://127.0.0.1:8000>
 ```
