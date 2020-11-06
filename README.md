@@ -42,4 +42,6 @@ $ php artisan serve
 Laravel development server started: <http://127.0.0.1:8000>
 ```
 
+![image](https://user-images.githubusercontent.com/52206492/98334880-3b9f6200-2047-11eb-9e03-c4e6dd34bd23.png)
+
 ブラウザにて http://127.0.0.1:8000 へアクセス
