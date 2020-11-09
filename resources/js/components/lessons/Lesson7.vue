@@ -1,7 +1,7 @@
 <template>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-start mb-3">
@@ -13,32 +13,50 @@
                         </div>
                     </div>
                     
-                    <div class="quesion-header">LaravelでAPIを作ってデータを表示する</div>
-                    <div class="alert alert-info" role="alert">
-                        <i class="far fa-lightbulb"></i> ヒント: Laravel側（バックエンド）のエラーは「storage\logs」に出力されます。 <br>
+                    <div class="quesion-header">１．LaravelでAPIを作ってデータを表示する</div>
+                    <p>
+                        API <code>axios.get('/api/lesson/selector')</code> を使ってコントローラからデータを取得する。<br>
                         参考：<br>
                         テーブル定義：https://drive.google.com/drive/folders/1PMy8UwOmx3UN1b0nrGJSVlXofXZReBVO<br>
                         database-design_lesson.html（商品）<br>
+                    </p>
+                    <div class="alert alert-info" role="alert">
+                        <i class="far fa-lightbulb"></i> ヒント: Laravel側（バックエンド）のエラーは「storage\logs」に出力されます。 <br>
                     </div>
+                    
                     // ここにデータを表示
 
                     <hr>
-                    <div class="alert alert-warning" role="alert">
-                        <i class="fas fa-book-reader"></i> 応用編：新規テーブル（customers）を作成してそのデータを画面に表示しましょう<br>
+                    <div class="quesion-header">２．新規テーブル（customers）を作成してそのデータを画面に表示しましょう</div>
+                    <p>
+                        参考：<br>
                         テーブル定義：https://drive.google.com/drive/folders/1PMy8UwOmx3UN1b0nrGJSVlXofXZReBVO<br>
                         database-design_lesson.html（顧客）<br>
-                        １．テーブル（マイグレーションファイル）を作成する<br>
-                        （コマンド：php artisan make:migration create_customers_table）<br>
-                        ２．シーダーを作成する<br>
-                        （コマンド：php artisan make:seeder CustomersTableSeeder）<br>
-                        ３．モデルを作成する<br>
-                        （コマンド：php artisan make:model Customer）<br>
-                        ４．コントローラーを作成する<br>
-                        （コマンド：php artisan make:controller API/CustomerController --api）<br>
-                        ５．APIのルーティングを作成する<br>
-                        （routes\api.phpに「Route::get('customer', 'API\CustomerController@index');」を定義）
+                        テーブル定義を参考にテーブルを作成する。<br>
+                    </p>
+                    <div class="mb-3">
+                        <div class="h5">１．テーブル（マイグレーションファイル）を作成する</div>
+                        コマンド：<code>php artisan make:migration create_customers_table</code>
                     </div>
+                    <div class="mb-3">
+                        <div class="h5">２．シーダーを作成する</div>
+                        コマンド：<code>php artisan make:seeder CustomersTableSeeder</code>
+                    </div>
+                    <div class="mb-3">
+                        <div class="h5">３．モデルを作成する</div>
+                        コマンド：<code>php artisan make:model Customer</code>
+                    </div>
+                    <div class="mb-3">
+                        <div class="h5">４．コントローラーを作成する</div>
+                        コマンド：<code>php artisan make:controller API/CustomerController --api</code>
+                    </div>
+                    <div class="mb-3">
+                        <div class="h5">５．APIのルーティングを作成する</div>
+                        routes\api.phpに <code>Route::get('customer', 'API\CustomerController@index');</code> を定義
+                    </div>
+                    
                     // ここにデータを表示
+
                 </div>
             </div>
         </div>
