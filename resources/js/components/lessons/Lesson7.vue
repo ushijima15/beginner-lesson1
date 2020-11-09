@@ -15,13 +15,18 @@
                     
                     <div class="quesion-header">LaravelでAPIを作ってデータを表示する</div>
                     <div class="alert alert-info" role="alert">
-                        <i class="far fa-lightbulb"></i> ヒント: Laravel側（バックエンド）のエラーは「storage\logs」に出力されます。
+                        <i class="far fa-lightbulb"></i> ヒント: Laravel側（バックエンド）のエラーは「storage\logs」に出力されます。 <br>
+                        参考：<br>
+                        テーブル定義：https://drive.google.com/drive/folders/1PMy8UwOmx3UN1b0nrGJSVlXofXZReBVO<br>
+                        database-design_lesson.html（商品）<br>
                     </div>
                     // ここにデータを表示
 
                     <hr>
                     <div class="alert alert-warning" role="alert">
                         <i class="fas fa-book-reader"></i> 応用編：新規テーブル（customers）を作成してそのデータを画面に表示しましょう<br>
+                        テーブル定義：https://drive.google.com/drive/folders/1PMy8UwOmx3UN1b0nrGJSVlXofXZReBVO<br>
+                        database-design_lesson.html（顧客）<br>
                         １．テーブル（マイグレーションファイル）を作成する<br>
                         （コマンド：php artisan make:migration create_customers_table）<br>
                         ２．シーダーを作成する<br>
