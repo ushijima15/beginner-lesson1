@@ -19,7 +19,6 @@ ENV TZ=UTC \
   APP_EVENTS_CACHE=/tmp/cache/events.php \
   VIEW_COMPILED_PATH=/tmp/cache/views \
   SESSION_DRIVER=cookie \
-  LOG_CHANNEL=stderr \
   DB_CONNECTION=mysql \
   DB_HOST=db \
   DB_PORT=3306 \
