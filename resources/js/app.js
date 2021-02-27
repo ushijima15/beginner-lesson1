@@ -99,8 +99,8 @@ const router = new VueRouter({
 
         // 商品
         { name: 'item', path: '/item', component: require('./components/items/Index.vue').default },
-        { name: 'item.create', path: '/item/create', component: require('./components/items/Createupdate.vue').default, props: true },
-        { name: 'item.show', path: '/item/show/:item_id', component: require('./components/items/Createupdate.vue').default, props: true },
+        { name: 'item.create', path: '/item/create', component: require('./components/items/CreateUpdate.vue').default, props: true },
+        { name: 'item.show', path: '/item/show/:item_id', component: require('./components/items/CreateUpdate.vue').default, props: true },
 
         // Lesson
         { name: 'lesson1', path: '/lesson1', component: require('./components/lessons/Lesson1.vue').default },

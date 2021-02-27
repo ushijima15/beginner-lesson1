@@ -14,6 +14,7 @@
                     </div>
                     
                     <div class="h3 mb-4">Welcome to Lesson</div>
+                    <div class="h5 mb-4">これが見れたら Leeson 1 はOKです。</div>
                 </div>
             </div>
         </div>
