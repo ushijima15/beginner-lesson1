@@ -26,7 +26,15 @@
                                 <th class="text-center bg-primary text-white" style="width:7rem;">実在庫数</th>
                             </tr>
                         </thead>
-
+                        <tbody>
+                            <tr v-for="inventory in inventories" key="index">
+                                <td class="text-center align-middle">{{inventory.item_code}}</td>
+                                <td class="text-center align-middle">{{inventory.item_name}}</td>
+                                <td class="text-center align-middle">{{inventory.stock_num}}</td>
+                                <td class="text-center align-middle">{{inventory.real_stock_num}}</td>
+                            </tr>
+                        </tbody>
+                        <br>
                         <tbody>
                             <tr class="bg-white">
                                 <td class="text-center align-middle">00001</td>

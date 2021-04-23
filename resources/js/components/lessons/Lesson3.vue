@@ -14,6 +14,25 @@
                     </div>
                     
                     <div class="quesion-header">電卓を作成してください。</div>
+                        <p><input type="text" v-model="output">
+                        <button style="width:2rem;" v-on:click="calc('AC')">AC</button>
+                        </p>
+                        <button style="width:2rem;" v-on:click="calc('/')">÷</button>
+                        <button style="width:2rem;" v-on:click="calc('1')">1</button>
+                        <button style="width:2rem;" v-on:click="calc('2')">2</button>
+                        <button style="width:2rem;" v-on:click="calc('3')">3</button><br>
+                        <button style="width:2rem;" v-on:click="calc('*')">×</button>
+                        <button style="width:2rem;" v-on:click="calc('4')">4</button>
+                        <button style="width:2rem;" v-on:click="calc('5')">5</button>
+                        <button style="width:2rem;" v-on:click="calc('6')">6</button><br>
+                        <button style="width:2rem;" v-on:click="calc('-')">-</button>
+                        <button style="width:2rem;" v-on:click="calc('7')">7</button>
+                        <button style="width:2rem;" v-on:click="calc('8')">8</button>
+                        <button style="width:2rem;" v-on:click="calc('9')">9</button><br>
+                        <button style="width:2rem;" v-on:click="calc('+')">+</button>
+                        <button style="width:2rem;" v-on:click="calc('0')">0</button>
+                        <button style="width:2rem;" v-on:click="calc('.')">.</button>
+                        <button style="width:2rem;" v-on:click="calc('=')">=</button>
                 </div>
             </div>
         </div>
@@ -29,6 +48,7 @@ export default {
     data () {
         return {
             //
+            output:'0'
         }
     },
     mounted () {
@@ -43,8 +63,19 @@ export default {
     methods: {
         onBack() {
             this.$router.push({ name: 'home' })
+        },
+        calc:function(cmd){
+  	        if(cmd === '='){
+    	    this.output = eval(this.output)  
+            }else if(cmd === 'AC'){
+    	    this.output = '0'
+            }else if(this.output === '0'){
+            this.output = cmd
+            }else{
+            this.output += cmd
+            }
         }
-    },
+    }
 }
 </script>
 

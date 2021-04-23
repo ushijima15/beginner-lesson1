@@ -13,7 +13,7 @@
     <script src="{{ asset(mix('js/app.js')) }}" defer></script>
     <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
     <script src="//unpkg.com/@popperjs/core@2"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">

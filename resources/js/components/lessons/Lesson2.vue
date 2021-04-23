@@ -12,7 +12,7 @@
                             <button type="button" class="btn btn-dark" @click="onBack">戻る</button>
                         </div>
                     </div>
-                    <div class="mb-5">
+                    <div id="app" class="mb-5">
                         <div class="quesion-header">１．入力値の合計を表示してください。</div>
                         <input type="number" v-model.number="left">
                         +
@@ -20,19 +20,18 @@
                         =
                         {{ total }}
                     </div>
-                    <div class="mb-5">
+                    <div id="app" class="mb-5">
                         <div class="quesion-header">２．年齢を表示してください。</div>
                         <label for="birthday">お誕生日は？</label>
                         <input type="date" id="birthday" v-model="birthday">
-                        
                         <p v-if="age >= 0">{{ age }} 歳ですね！</p>
                         <p v-else>お誕生日を入力してください。</p>
                     </div>
-                    <div class="mb-5">
+                    <div id="app" class="mb-5">
                         <div class="quesion-header">３．プラスボタン、マイナスボタンで数値を変更できるようにしてください。</div>
                         <label>カウンター</label>
-                        <button style="width:2rem;">+</button>
-                        <button style="width:2rem;">-</button>
+                        <button style="width:2rem;" v-on:click="Advance">+</button>
+                        <button style="width:2rem;" v-on:click="Back">-</button>
                         {{count}}
                     </div>
                 </div>
@@ -41,7 +40,6 @@
     </div>
 </div>
 </template>
-
 <script>
 export default {
     props: {
@@ -49,8 +47,8 @@ export default {
     },
     data () {
         return {
-            left: 0,
-            right: 0,
+            left: 4,
+            right: 4,
             birthday: null,
             count: 0,
         }
@@ -63,17 +61,24 @@ export default {
     },
     computed: {
         total() {
-
+            return this.right+this.left
         },
-        age() {
-
+        age:function(){
+            moment.locale('ja')
+            return moment().diff(this.birthday,'years')
         }
     },
     methods: {
         onBack() {
             this.$router.push({ name: 'home' })
-        }
-    },
+        },
+        Advance:function(){
+            return this.count++
+        },
+        Back:function(){
+            return this.count--
+        },
+    }
 }
 </script>
 

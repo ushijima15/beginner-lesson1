@@ -26,7 +26,7 @@
                             </div>
                         </div>
                     </div>
-                    <table class="table table-sm" key="processes">
+                    <table class="table table-sm" key="processes2">
                         <thead>
                             <tr>
                                 <th class="text-center bg-primary text-white">商品コード</th>
@@ -35,7 +35,6 @@
                                 <th class="text-center bg-primary text-white" style="width:7rem;">実在庫数</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr class="bg-white" v-for="(inventory, index) in filterInventories" :key="index">
                                 <td class="text-center align-middle">{{inventory.item_code}}</td>
@@ -50,6 +49,32 @@
                     <div class="alert alert-warning" role="alert">
                         <i class="fas fa-book-reader"></i> 在庫数でフィルタリングしてみましょう。（例）200と入力したら在庫数が200以上の物を表示
                     </div>
+                    <div class="d-flex flex-wrap justify-content-start mt-1 mb-2">
+                        <div class="d-flex mr-3">
+                            <div class="align-self-center">：在庫個数</div>
+                            <div class="align-self-center">
+                                <input class="form-control" v-model="searchStock_num">
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-sm" key="processes">
+                        <thead>
+                            <tr>
+                                <th class="text-center bg-primary text-white">商品コード</th>
+                                <th class="text-center bg-primary text-white">商品名</th>
+                                <th class="text-center bg-primary text-white">在庫数</th>
+                                <th class="text-center bg-primary text-white" style="width:7rem;">実在庫数</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white" v-for="(inventory,index2) in filterSearchstock" :key="index2">
+                                <td class="text-center align-middle">{{inventory.item_code}}</td>
+                                <td class="text-center align-middle">{{inventory.item_name}}</td>
+                                <td class="text-center align-middle">{{inventory.stock_num}}</td>
+                                <td class="text-center align-middle">{{inventory.real_stock_num}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -72,6 +97,7 @@ export default {
                 { id: 5, item_code: 'ITEM0005', item_name: '商品００００５', stock_num: 500, real_stock_num: 311 },
             ],
             searchItemCode: '',
+            searchStock_num:0,
         }
     },
     mounted () {
@@ -82,8 +108,22 @@ export default {
     },
     computed: {
         filterInventories() {
-            return this.inventories
+            var data = this.inventories;
+            var filterWord = this.searchItemCode && this.searchItemCode.toLowerCase();
+            if(filterWord) {
+                data = data.filter(function (row) {
+                    return Object.keys(row).some(function (key) {
+                        return String(row[key]).toLowerCase().indexOf(filterWord) > -1
+                })
+            })
         }
+        return data;
+        },
+        filterSearchstock(){
+            return this.inventories.filter((el) => {
+                return el.stock_num >= this.searchStock_num
+            },this)
+        },       
     },
     methods: {
         onBack() {

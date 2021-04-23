@@ -14,6 +14,7 @@
                     </div>
                     
                     <div class="quesion-header">１．LaravelでAPIを作ってデータを表示する</div>
+                    //laravel内のデータを表示
                     <p>
                         API <code>axios.get('/api/lesson/selector')</code> を使ってコントローラからデータを取得する。<br>
                         参考：<br>
@@ -23,9 +24,8 @@
                     <div class="alert alert-info" role="alert">
                         <i class="far fa-lightbulb"></i> ヒント: Laravel側（バックエンド）のエラーは「storage\logs」に出力されます。 <br>
                     </div>
-                    
-                    // ここにデータを表示
-
+                    // ここにデータを表示(データの確認が必要)
+                    <dir>{{items}}</dir>
                     <hr>
                     <div class="quesion-header">２．新規テーブル（customers）を作成してそのデータを画面に表示しましょう</div>
                     <p>
@@ -53,10 +53,9 @@
                     <div class="mb-3">
                         <div class="h5">５．APIのルーティングを作成する</div>
                         routes\api.phpに <code>Route::get('customer', 'API\CustomerController@index');</code> を定義
-                    </div>
-                    
+                    </div>                   
                     // ここにデータを表示
-
+                    <dir>{{customer}}</dir> 
                 </div>
             </div>
         </div>
@@ -73,10 +72,15 @@ export default {
         return {
             results: null,
             items: null,
+            customer:null,
         }
     },
     mounted () {
         this.getInit()
+        axios.get('/api/lesson/selector')
+             .then(response =>(this.items =response.data))
+        axios.get('/api/customer')
+             .then(response =>(this.customer =response.data))
     },
     watch: {
         //
@@ -92,6 +96,8 @@ export default {
             // ↑これがControllerとの紐づけ定義
             const {data} = await axios.get('/api/lesson/selector')
             this.results = data
+            const {data2} = await axios.get('/api/lesson/customer')
+            this.results = data2
         },
         onBack() {
             this.$router.push({ name: 'home' })

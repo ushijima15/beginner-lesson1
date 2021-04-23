@@ -16,9 +16,8 @@
                     <div class="quesion-header">APIを使って取得したデータを表示しましょう</div>
                     <div class="d-flex flex-wrap justify-content-start mt-1 mb-2">
                         <div class="d-flex mr-3">
-                            <div class="align-self-center">例）version：</div>
                             <div class="align-self-center">
-                                <input class="form-control" v-model="items.info.version">
+                                {{items}}
                             </div>
                         </div>
                     </div>
@@ -26,6 +25,9 @@
                     <hr>
                     <div class="alert alert-warning" role="alert">
                         <i class="fas fa-book-reader"></i> 応用編：公開されているAPIを使ってデータを取得してましょう。「http://smsurf.app-rox.com/api/」
+                        <div class="align-self-center">
+                            {{items2}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -42,10 +44,15 @@ export default {
     data () {
         return {
             items: null,
+            items2: null,
         }
     },
     mounted () {
-        this.getInit()
+        axios.get('https://randomuser.me/api/')
+            .then(response => (this.items = response))
+        //axios.get('http://smsurf.app-rox.com/api/')
+        axios.get('API\CustomerController@index')
+             .then(response =>(this.items2 =response))
     },
     watch: {
         //

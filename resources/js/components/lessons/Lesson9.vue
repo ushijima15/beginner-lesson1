@@ -21,13 +21,57 @@
                         ・customersの編集<br>
                         ・customersの削除<br>
                     </p>
+                    <!-- 新規追加フォーム -->
+                    <P>
+                        <br>
+                    </P>
+                    <p>
+                        ----To doリストの作成----
+                    </p>
+                    <div>
+                        <p>
+                            To do:
+                            <input type="text" v-model="todo">
+                        </p>
+                        <p>
+                            To doの期限:
+                            <input type="text" v-model="remit">
+                        </p>
+                        <button @click="addcustomer">追加</button>
+                    </div>
+                    
+                    <p>
+                        --------やる事一覧--------
+                    </p>
+                    <div>
+                        <ul>
+                            <li v-for="customer in customers" :key=customer.id>
+                                {{customer.id}}/{{customer.todo}}/{{customer.deadline}}
+                                <button :disabled="isPush" @click="displayUpdate(customer.id, customer.title, customer.author)">編集</button>
+                                <button :disabled="isPush" @click="deleteBook(customer.id)">削除</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 編集フォーム -->
+                    
+                    <div v-if="updateForm">
+                        <p>To do：<input type="text" v-model="updateTodo" /></p>
+                        <p>To do の期限：<input type="text" v-model="updateRemit" /></p>
+                        <button @click="updateTodo(updateId, updateTodo, updateRemit)">
+                            編集する
+                        </button>
+                        <button @click="updateCancel">キャンセル</button>
+                    </div>
+                    <div>
+                        <!-- エラーメッセージ -->
+                        <p v-if="message">{{ message }}</p>
+                    </div>          
                 </div>
             </div>
-        </div>
+        </div>    
     </div>
 </div>
 </template>
-
 <script>
 export default {
     props: {
@@ -35,11 +79,20 @@ export default {
     },
     data () {
         return {
-            //
+            message: "",
+            isPush: false,
+            updateForm: false,
+            customers: {},
+            todo: "",
+            remit: "",
+            updateId: "",
+            updateTodo: "",
+            updateRemit: ""
         }
     },
     mounted () {
-        //
+        axios.get('/api/customer')
+             .then(response =>(this.customer =response))
     },
     watch: {
         //

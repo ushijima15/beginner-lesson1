@@ -13,12 +13,13 @@ use App\Http\Resources\User as UserResource;
 | is assigned the "api" middleware group. Enjoy machine your API!
 |
 */
+//APIのルーティングの設定
+
 
 Route::middleware('auth:api')->get('/user/info', function (Request $request) {
     return new UserResource($request->user());
 });
 Route::middleware(['auth:api'])->group(function () {
-    
     // レポート
     Route::get('report', 'API\ReportController@index');
     Route::post('report', 'API\ReportController@store');
@@ -40,6 +41,15 @@ Route::middleware(['auth:api'])->group(function () {
     Route::get('employee/selector', 'API\EmployeeController@selector');
     Route::get('employee/full_name', 'API\EmployeeController@fullname');
 
+    // 顧客
+    Route::get('customer', 'API\CustomerController@index');
+    Route::post('customer', 'API\CustomerController@store');
+    Route::get('customer/{customer}', 'API\CustomerController@show');
+    Route::put('customer/{customer}', 'API\CustomerController@update');
+    Route::delete('customer/{customer}', 'API\CustomerController@destroy');
+    Route::get('customer/selector', 'API\CustomerController@selector');
+    Route::get('customer/full_name', 'API\CustomerController@fullname');
+
     // 商品
     Route::get('item', 'API\ItemController@index');
     Route::post('item', 'API\ItemController@store');
@@ -47,7 +57,6 @@ Route::middleware(['auth:api'])->group(function () {
     Route::put('item/{item}', 'API\ItemController@update');
     Route::delete('item/{item}', 'API\ItemController@destroy');
     Route::get('item/selector', 'API\ItemController@selector');
-
     Route::get('lesson/selector', 'API\LessonController@index');
     ////
 
