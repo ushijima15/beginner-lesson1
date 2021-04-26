@@ -10,3 +10,4 @@ npm-debug.log
 yarn-error.log
 laravel-echo-server.json
 node_modules
+public/js/app.js
