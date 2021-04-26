@@ -22,7 +22,6 @@ import 'vue-loading-overlay/dist/vue-loading.min.css';
 import 'vue-loading-overlay/dist/vue-loading.min.css';
 // https://www.npmjs.com/package/vue-full-calendar
 import FullCalendar from 'vue-full-calendar';
-import FullCalendar from 'vue-full-calendar';
 Vue.use(FullCalendar)
 import 'fullcalendar/dist/fullcalendar.css';
 import 'fullcalendar-scheduler/dist/scheduler.min.js';
