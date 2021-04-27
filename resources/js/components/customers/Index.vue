@@ -78,7 +78,7 @@ export default {
             this.$router.push({ name: 'customer.create' })
         },
         onShow: function (customer_id) {
-            //this.$router.push({ name: 'customer.show', params: {customer_id: customer_id} })
+            this.$router.push({ name: 'customer.show', params: {customer_id: customer_id} })
         },
         onBack: function () {
             this.$router.go(-1)
