@@ -52,6 +52,6 @@ class Customer extends Model
      */
     public function product_plans()
     {
-        return $this->belongsToMany('App\ProductPlan', 'product_plan_employee')->withTimestamps();
+        return $this->belongsToMany('App\ProductPlan', 'product_plan_customer')->withTimestamps();
     }
 }
