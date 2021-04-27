@@ -71,7 +71,7 @@
                         <div class="form-group row" v-else>
                             <label for="address" class="col-md-4 col-form-label text-md-right">住所</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" id="password" v-model="customer.password"/>
+                                <input type="text" class="form-control" id="address" v-model="customer.address"/>
                                 <div class="text-muted"><small>※変更する場合は入力してください。</small></div>
                             </div>
                         </div>
