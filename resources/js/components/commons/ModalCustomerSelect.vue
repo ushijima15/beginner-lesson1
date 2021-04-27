@@ -1,6 +1,6 @@
 <template>
     <!-- Modal Component -->
-    <b-modal v-model="isShow" size="lg" header-bg-variant="primary" header-text-variant="white" hide-footer title="従業員の選択" @hide="onHide">
+    <b-modal v-model="isShow" size="lg" header-bg-variant="primary" header-text-variant="white" hide-footer title="顧客の選択" @hide="onHide">
         <b-tabs>
             <b-tab title="あ行" active>
                 <select-name :customers="filterCustomerA" @selected="onSelected"/>
