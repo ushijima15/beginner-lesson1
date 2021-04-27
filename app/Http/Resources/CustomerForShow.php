@@ -23,8 +23,10 @@ class CustomerForShow extends JsonResource
             'last_phonetic_name' => $this->last_phonetic_name,
             // 'use_login' => isset($this->user),
             // 'used_login' => isset($this->user),
-            'company_name' => isset($this->user) ? $this->user->name : null,
+            //'company_name' => isset($this->user) ? $this->user->name : null,
             // 'email' => isset($this->user) ? $this->user->email : null,
+            'company_name' => $this->company_name,
+            'address' => $this->address,
         ];
     }
 }

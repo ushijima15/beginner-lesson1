@@ -18,7 +18,8 @@ class CustomerForList extends JsonResource
             'id' => $this->id,
             'full_name' => $this->full_name,
             'full_phonetic_name' => $this->full_phonetic_name,
-            'company_name' => isset($this->user) ? $this->user->name : null,
+            'company_name' => $this->company_name,
+            'address' => $this->address,
         ];
     }
 }
