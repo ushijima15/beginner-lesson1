@@ -32,27 +32,4 @@ class Customer extends Model
         return $this->belongsTo('App\User');
     }
 
-    /**
-     * 工場を取得
-     */
-    public function factory()
-    {
-        return $this->belongsTo('App\Factory');
-    }
-
-    /**
-     * 部署を取得
-     */
-    public function department()
-    {
-        return $this->belongsTo('App\Department');
-    }
-
-    /**
-     * タイムテーブルを取得
-     */
-    public function product_plans()
-    {
-        return $this->belongsToMany('App\ProductPlan', 'product_plan_customer')->withTimestamps();
-    }
 }
