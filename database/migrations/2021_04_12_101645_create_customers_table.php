@@ -20,6 +20,7 @@ class CreateCustomersTable extends Migration
             $table->string('last_name')->comment('姓');
             $table->string('first_phonetic_name')->nullable()->comment('カナ名');
             $table->string('last_phonetic_name')->nullable()->comment('カナ姓');
+            $table->string('company_name')->nullable()->comment('会社名');
             $table->softDeletes();
             $table->timestamps();
         });
