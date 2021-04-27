@@ -57,15 +57,15 @@
                             </div>
                         </div> -->
                         <div class="form-group required-label row">
-                            <label for="user_name" class="col-sm-4 col-form-label text-md-right">会社名</label>
+                            <label for="company_name" class="col-sm-4 col-form-label text-md-right">会社名</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" id="user_name" v-model="customer.user_name"/>
+                                <input type="text" class="form-control" id="company_name" v-model="customer.company_name"/>
                             </div>
                         </div>
                         <div class="form-group row" v-if="mode=='create'">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">住所</label>
+                            <label for="address" class="col-md-4 col-form-label text-md-right">住所</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" id="password" v-model="customer.password"/>
+                                <input type="text" class="form-control" id="address" v-model="customer.address"/>
                             </div>
                         </div>
                         <div class="form-group row" v-else>
@@ -121,8 +121,8 @@ export default {
                 first_phonetic_name: '',
                 last_phonetic_name: '',
                 // email: '',
-                user_name: '',
-                password: '',
+                company_name: '',
+                address: '',
             },
             
             invalid: false,
@@ -191,7 +191,7 @@ export default {
                 this.invalid = true
                 return
             }
-            if (!this.customer.user_name) {
+            if (!this.customer.company_name) {
                 this.errorMessage = '会社名を入力してください。'
                 this.invalid = true
                 return

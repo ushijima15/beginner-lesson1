@@ -29,7 +29,7 @@
                             <tr v-for="customer in customers" class="clickable" :key="customer.id" @click="onShow(customer.id)">
                                 <td class="text-center align-middle">{{customer.full_name}}</td>
                                 <td class="text-center align-middle">{{customer.full_phonetic_name}}</td>
-                                <td class="text-center align-middle">{{customer.user_name}}</td>
+                                <td class="text-center align-middle">{{customer.company_name}}</td>
                             </tr>
                         </tbody>
                         <loading :active.sync="isLoading"></loading>
