@@ -74,7 +74,7 @@ class CustomerController extends Controller
     {
         $count = User::where([
             ['id', '<>', $customer->user_id],
-            ['name', $request->customer['user_name']]
+            ['name', $request->customer['company_name']]
         ])->count();
         if ($count) {
             return response()->json([
@@ -88,8 +88,8 @@ class CustomerController extends Controller
             if (!isset($user)) $user = new User;
             $user->name =  $request->customer['user_name'];
             // $user->email = $request->employee['email'] ?: '';
-            if (array_key_exists('password', $request->customer) && $request->customer['password']) {
-                $user->password = bcrypt($request->customer['password']);
+            if (array_key_exists('address', $request->customer) && $request->customer['address']) {
+                $user->password = bcrypt($request->customer['address']);
             }
             $user->save();
             $customer->user_id = $user->id;
