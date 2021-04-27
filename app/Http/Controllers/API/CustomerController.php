@@ -98,7 +98,8 @@ class CustomerController extends Controller
             $customer->last_name = $request->customer['last_name'];
             $customer->first_phonetic_name = $request->customer['first_phonetic_name'];
             $customer->last_phonetic_name = $request->customer['last_phonetic_name'];
-            
+            $customer->company_name = $request->customer['company_name'];
+            $customer->address = $request->customer['address'];
             $customer->save();
         });
 
