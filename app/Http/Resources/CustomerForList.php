@@ -23,7 +23,6 @@ class CustomerForList extends JsonResource
             'tel' => $this ->tel,
             'fax' => $this->fax,
             'closing_day'=> $this ->closing_day,
-            
         ];
     }
 }

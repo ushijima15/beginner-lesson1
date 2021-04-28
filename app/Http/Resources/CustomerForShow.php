@@ -16,7 +16,6 @@ class CustomerForShow extends JsonResource
     {
         return [
             'id' => $this->id,
-            // 'code' => $this->code,
             'code' => $this ->code,
             'name' => $this ->name,
             'postal_code'=> $this ->postal_code,
