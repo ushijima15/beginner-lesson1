@@ -16,10 +16,13 @@ class CustomerForSelector extends JsonResource
     {
         return [
             'id' => $this->id,
-            'first_name' => $this->first_name,
-            'last_name' => $this->last_name,
-            'full_name' => $this->full_name,
-            'full_phonetic_name' => $this->full_phonetic_name,
+            'code' => $this ->code,
+            'name' => $this ->name,
+            'postal_code'=> $this ->postal_code,
+            'address'=> $this ->address,
+            'tel' => $this ->tel,
+            'fax' => $this->fax,
+            'closing_day'=> $this ->closing_day,
         ];
     }
 }

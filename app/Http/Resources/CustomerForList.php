@@ -16,10 +16,14 @@ class CustomerForList extends JsonResource
     {
         return [
             'id' => $this->id,
-            'full_name' => $this->full_name,
-            'full_phonetic_name' => $this->full_phonetic_name,
-            'company_name' => $this->company_name,
-            'address' => $this->address,
+            'code' => $this ->code,
+            'name' => $this ->name,
+            'postal_code'=> $this ->postal_code,
+            'address'=> $this ->address,
+            'tel' => $this ->tel,
+            'fax' => $this->fax,
+            'closing_day'=> $this ->closing_day,
+            
         ];
     }
 }
