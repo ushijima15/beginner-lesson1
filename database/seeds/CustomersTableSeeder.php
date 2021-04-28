@@ -13,6 +13,6 @@ class CustomersTableSeeder extends Seeder
     public function run()
     {
         //
-        $model = new Customer;$model->company_name= '中之島';$model->first_name = '阿波座';$model->last_name = '本町';$model->save();
+        $model = new Customer;$model->name= '中之島';$model->address = '阿波座';$model->tel = '000111222';$model->save();
     }
 }

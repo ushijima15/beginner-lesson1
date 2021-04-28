@@ -14,13 +14,14 @@ class CreateCustomersTable extends Migration
     public function up()
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->Bigincrements('id');
-            $table->string('first_name')->nullable()->comment('名');
-            $table->string('last_name')->comment('姓');
-            $table->string('first_phonetic_name')->nullable()->comment('カナ名');
-            $table->string('last_phonetic_name')->nullable()->comment('カナ姓');
-            $table->string('company_name')->comment('会社名');
+            $table->bigincrements('id');
+            $table->string('code')->nullable()->comment('顧客コード');
+            $table->string('name')->nullable()->comment('顧客名');
+            $table->string('postal_code')->nullable()->comment('郵便番号');
             $table->string('address')->nullable()->comment('住所');
+            $table->string('tel')->nullable()->comment('電話番号');
+            $table->string('fax')->comment('FAX');
+            $table->string('closing_day')->comment('定休日');
             $table->softDeletes();
             //$table->timestamps();
         });
