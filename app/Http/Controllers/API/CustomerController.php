@@ -37,10 +37,13 @@ class CustomerController extends Controller
 
 
             $customer = new Customer;
-            $customer->first_name = $request->customer['first_name'];
-            $customer->last_name = $request->customer['last_name'];
-            $customer->first_phonetic_name = $request->customer['first_phonetic_name'];
-            $customer->last_phonetic_name = $request->customer['last_phonetic_name'];
+            $customer->code = $request->customer['code'];
+            $customer->name = $request->customer['name'];
+            $customer->postal_code = $request->customer['postal_code'];
+            $customer->tel = $request->customer['tel'];
+            $customer->fax = $request->customer['fax'];
+            $customer->closing_day = $request->customer['closing_day'];
+            $customer->address = $request->customer['address'];
             // $user->email = $request->employee['email'] ?: '';
 
             
@@ -74,7 +77,7 @@ class CustomerController extends Controller
     {
         $count = User::where([
             ['id', '<>', $customer->user_id],
-            ['name', $request->customer['company_name']]
+            ['name', $request->customer['name']]
         ])->count();
         if ($count) {
             return response()->json([
@@ -86,19 +89,18 @@ class CustomerController extends Controller
         DB::transaction(function () use ($request, $customer) {
             $user = $customer->user;
             if (!isset($user)) $user = new User;
-            $user->name =  $request->customer['user_name'];
+            $user->name =  $request->customer['name'];
             // $user->email = $request->employee['email'] ?: '';
             if (array_key_exists('address', $request->customer) && $request->customer['address']) {
                 $user->password = bcrypt($request->customer['address']);
             }
-            $user->save();
-            $customer->user_id = $user->id;
-            
-            $customer->first_name = $request->customer['first_name'];
-            $customer->last_name = $request->customer['last_name'];
-            $customer->first_phonetic_name = $request->customer['first_phonetic_name'];
-            $customer->last_phonetic_name = $request->customer['last_phonetic_name'];
-            $customer->company_name = $request->customer['company_name'];
+            $user->save();            
+            $customer->code = $request->customer['code'];
+            $customer->name = $request->customer['name'];
+            $customer->postal_code = $request->customer['postal_code'];
+            $customer->tel = $request->customer['tel'];
+            $customer->fax = $request->customer['fax'];
+            $customer->closing_day = $request->customer['closing_day'];
             $customer->address = $request->customer['address'];
             $customer->save();
         });
