@@ -13,6 +13,7 @@ use App\User;
 
 class CustomerController extends Controller
 {
+     
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +24,6 @@ class CustomerController extends Controller
         $customers = Customer::all();
         return CustomerForListResource::collection($customers);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -36,14 +36,16 @@ class CustomerController extends Controller
         DB::transaction(function () use ($request) {
 
 
-            $customer = new Customer;
-            $customer->code = $request->customer['code'];
-            $customer->name = $request->customer['name'];
-            $customer->postal_code = $request->customer['postal_code'];
-            $customer->tel = $request->customer['tel'];
-            $customer->fax = $request->customer['fax'];
-            $customer->closing_day = $request->customer['closing_day'];
-            $customer->address = $request->customer['address'];
+            $customers= new Customer;
+            $customers->timestamps =false;
+            $customers->save();
+            $customers->code = $request->customer['code'];
+            $customers->name = $request->customer['name'];
+            $customers->postal_code = $request->customer['postal_code'];
+            $customers->tel = $request->customer['tel'];
+            $customers->fax = $request->customer['fax'];
+            $customers->closing_day = $request->customer['closing_day'];
+            $customers->address = $request->customer['address'];
             // $user->email = $request->employee['email'] ?: '';
 
             
@@ -141,14 +143,4 @@ class CustomerController extends Controller
         return CustomerSelectorResource::collection($customers);
     }
 
-    /**
-     * フルネーム＠検索用
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function fullname()
-    {
-        $customers = Customer::all();
-        return CustomerForSelectorResource::collection($customers);
-    }
 }
