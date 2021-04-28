@@ -14,30 +14,47 @@
                     </div>
                     <form>
                         <div class="form-group required-label row">
-                            <label for="last_name" class="col-sm-4 col-form-label text-md-right">姓</label>
+                            <label for="code" class="col-sm-4 col-form-label text-md-right">顧客コード</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" id="last_name" v-model="customer.last_name"/>
+                                <input type="text" class="form-control" id="code" v-model="customer.code"/>
+                            </div>
+                        </div>
+                        <div class="form-group required-label row">
+                            <label for="name" class="col-sm-4 col-form-label text-md-right">顧客名</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="name" v-model="customer.name"/>
+                            </div>
+                        </div>
+                        <div class="form-group required-label row">
+                            <label for="postal_code" class="col-sm-4 col-form-label text-md-right">郵便番号</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="postal_code" v-model="customer.postal_code"/>
+                            </div>
+                        </div>
+                        <div class="form-group required-label row">
+                            <label for="address" class="col-sm-4 col-form-label text-md-right">住所</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="address" v-model="customer.address"/>
+                            </div>
+                        </div>
+                        <div class="form-group required-label row">
+                            <label for="tel" class="col-sm-4 col-form-label text-md-right">電話番号</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="tel" v-model="customer.tel"/>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="first_name" class="col-sm-4 col-form-label text-md-right">名</label>
+                            <label for="fax" class="col-sm-4 col-form-label text-md-right">FAX</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" id="first_name" v-model="customer.first_name"/>
+                                <input type="text" class="form-control" id="fax" v-model="customer.fax"/>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="last_phonetic_name" class="col-sm-4 col-form-label text-md-right">カナ姓</label>
+                            <label for="closing_day" class="col-sm-4 col-form-label text-md-right">定休日</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" id="last_phonetic_name" v-model="customer.last_phonetic_name"/>
+                                <input type="text" class="form-control" id="closing_day" v-model="customer.closing_day"/>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="first_phonetic_name" class="col-sm-4 col-form-label text-md-right">カナ名</label>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" id="first_phonetic_name" v-model="customer.first_phonetic_name"/>
-                            </div>
-                        </div>
-                        
+                        </div>         
                         <!-- <div class="form-group row">
                             <div class="col-md-4 text-md-right">
                                 <label for="use_login" class="col-form-label"></label>
@@ -56,25 +73,6 @@
                                 <input type="text" class="form-control" id="email" v-model="employee.email"/>
                             </div>
                         </div> -->
-                        <div class="form-group required-label row">
-                            <label for="company_name" class="col-sm-4 col-form-label text-md-right">会社名</label>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" id="company_name" v-model="customer.company_name"/>
-                            </div>
-                        </div>
-                        <div class="form-group row" v-if="mode=='create'">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">住所</label>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" id="address" v-model="customer.address"/>
-                            </div>
-                        </div>
-                        <div class="form-group row" v-else>
-                            <label for="address" class="col-md-4 col-form-label text-md-right">住所</label>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" id="address" v-model="customer.address"/>
-                                <div class="text-muted"><small>※変更する場合は入力してください。</small></div>
-                            </div>
-                        </div>
                         <!-- </template> -->
                         <div class="row-line">
                             <transition name="fade" mode="out-in">
@@ -116,13 +114,14 @@ export default {
         return {
             customer: {
                 id: '',
-                first_name: '',
-                last_name: '',
-                first_phonetic_name: '',
-                last_phonetic_name: '',
-                // email: '',
-                company_name: '',
+                code: '',
+                name: '',
+                postal_code: '',
                 address: '',
+                tel: '',
+                fax: '',
+                closing_day: '',
+                // email: '',
             },
             
             invalid: false,

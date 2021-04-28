@@ -19,9 +19,9 @@
                     <table class="table-custom" key="processes">
                         <thead>
                             <tr>
-                                <th class="text-center">氏名</th>
-                                <th class="text-center">フリガナ</th>
-                                <th class="text-center">会社名</th>
+                                <th class="text-center">顧客名</th>
+                                <th class="text-center">住所</th>
+                                <th class="text-center">電話番号</th>
                             </tr>
                         </thead>
                         
