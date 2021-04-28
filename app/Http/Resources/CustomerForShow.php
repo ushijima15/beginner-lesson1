@@ -17,16 +17,17 @@ class CustomerForShow extends JsonResource
         return [
             'id' => $this->id,
             // 'code' => $this->code,
-            'first_name' => $this->first_name,
-            'last_name' => $this->last_name,
-            'first_phonetic_name' => $this->first_phonetic_name,
-            'last_phonetic_name' => $this->last_phonetic_name,
+            'code' => $this ->code,
+            'name' => $this ->name,
+            'postal_code'=> $this ->postal_code,
+            'address'=> $this ->address,
+            'tel' => $this ->tel,
+            'fax' => $this->fax,
+            'closing_day'=> $this ->closing_day,
             // 'use_login' => isset($this->user),
             // 'used_login' => isset($this->user),
             //'company_name' => isset($this->user) ? $this->user->name : null,
             // 'email' => isset($this->user) ? $this->user->email : null,
-            'company_name' => $this->company_name,
-            'address' => $this->address,
         ];
     }
 }
