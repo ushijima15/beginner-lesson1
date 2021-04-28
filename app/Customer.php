@@ -46,12 +46,4 @@ class Customer extends Model
     {
         return $this->belongsTo('App\Department');
     }
-
-    /**
-     * タイムテーブルを取得
-     */
-    public function product_plans()
-    {
-        return $this->belongsToMany('App\ProductPlan', 'product_plan_customer')->withTimestamps();
-    }
 }
