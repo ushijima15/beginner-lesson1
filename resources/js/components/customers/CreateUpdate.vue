@@ -185,17 +185,31 @@ export default {
             this.invalid = false
             this.errorMessage = ''
             
-            if (!this.customer.last_name) {
-                this.errorMessage = '姓を入力してください。'
+            if (!this.customer.code) {
+                this.errorMessage = '顧客コードを入力してください。'
                 this.invalid = true
                 return
             }
-            if (!this.customer.company_name) {
-                this.errorMessage = '会社名を入力してください。'
+            if (!this.customer.name) {
+                this.errorMessage = '顧客名を入力してください。'
                 this.invalid = true
                 return
             }
-
+            if (!this.customer.postal_code) {
+                this.errorMessage = '郵便番号を入力してください。'
+                this.invalid = true
+                return
+            }
+            if (!this.customer.address) {
+                this.errorMessage = '住所を入力してください。'
+                this.invalid = true
+                return
+            }
+            if (!this.customer.tel) {
+                this.errorMessage = '電話番号を入力してください。'
+                this.invalid = true
+                return
+            }
             let _this = this
             if (this.mode == 'create') {
                 axios.post('/api/customer', {
