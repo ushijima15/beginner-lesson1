@@ -16,7 +16,7 @@ class CustomerSelector extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->full_name,
+            'name' => $this->name,
         ];
     }
 }

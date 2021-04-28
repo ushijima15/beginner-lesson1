@@ -14,7 +14,7 @@ class CreateCustomersTable extends Migration
     public function up()
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->bigincrements('id');
+            $table->increments('id');
             $table->string('code')->nullable()->comment('顧客コード');
             $table->string('name')->nullable()->comment('顧客名');
             $table->string('postal_code')->nullable()->comment('郵便番号');
