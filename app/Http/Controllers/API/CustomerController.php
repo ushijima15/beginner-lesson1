@@ -75,14 +75,14 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        $count = User::where([
-            ['id', '<>', $customer->user_id],
-            ['name', $request->customer['name']]
+        $count = Customer::where([
+            ['id', '<>', $customer->id],
+            ['code', $request->customer['code']]
         ])->count();
         if ($count) {
             return response()->json([
                 'result' => false,
-                'errorMessage' => 'ユーザIDは既に登録されています。'
+                'errorMessage' => '商品コードは既に登録されています。'
             ]);
         }
         
