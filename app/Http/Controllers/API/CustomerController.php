@@ -36,7 +36,6 @@ class CustomerController extends Controller
 
 
             $customer= new Customer;
-            $customer->timestamps =false;
             $customer->save();
             $customer->code = $request->customer['code'];
             $customer->name = $request->customer['name'];
