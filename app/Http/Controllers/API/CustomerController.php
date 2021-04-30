@@ -76,7 +76,6 @@ class CustomerController extends Controller
     public function update(Request $request, Customer $customer)
     {
         $count = Customer::where([
-            ['id', '<>', $customer->id],
             ['code', $request->customer['code']]
         ])->count();
         if ($count) {
@@ -119,10 +118,7 @@ class CustomerController extends Controller
     public function destroy(Customer $customer)
     {
         DB::transaction(function () use ($customer) {
-            $customer->delete();
-
-            $customer->user->delete();
-            
+            $customer->delete();            
         });
 
         return response()->json([
