@@ -12,6 +12,6 @@ class ItemsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-    }
+        $model = new Item;$model->code='01';$model->name='cokkie';$model->save();
+    } 
 }

@@ -33,14 +33,14 @@
 </template>
 
 <script>
-import child from './Lesson8-2.vue'
+//import child from './Lesson8-2.vue'
 export default {
-    name:'Lesson8',
+    //name:'Lesson8',
     props: {
         //
     },
     components: {
-        child,
+    //    child,
     },
     data () {
         return {
