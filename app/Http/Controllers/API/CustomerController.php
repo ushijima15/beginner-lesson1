@@ -91,8 +91,8 @@ class CustomerController extends Controller
             $customer->name = $request->customer['name'];
             $customer->postal_code = $request->customer['postal_code'];
             $customer->tel = $request->customer['tel'];
-            //$customer->fax = $request->customer['fax'];
-            //$customer->closing_day = $request->customer['closing_day'];
+            $customer->fax = $request->customer['fax'];
+            $customer->closing_day = $request->customer['closing_day'];
             $customer->address = $request->customer['address'];
             $customer->save();
         });

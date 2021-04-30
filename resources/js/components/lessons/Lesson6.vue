@@ -44,7 +44,7 @@ export default {
     data () {
         return {
             items: null,
-            items2: null,
+            items2:null,
         }
     },
     mounted () {
@@ -52,7 +52,7 @@ export default {
             .then(response => (this.items = response))
         //axios.get('API\CustomerController@index')
         //
-        axios.get('http://smsurf.app-rox.com/api/')
+        axios.get('https://www.googleapis.com/youtube/v3/search')
              .then(response =>(this.items2 =response))
     },
     watch: {

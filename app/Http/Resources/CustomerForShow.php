@@ -21,6 +21,8 @@ class CustomerForShow extends JsonResource
             'postal_code'=> $this ->postal_code,
             'address'=> $this ->address,
             'tel' => $this ->tel,
+            'fax' => $this->fax,
+            'closing_day'=> $this ->closing_day,
             //'fax' => $this->fax,
             //'closing_day'=> $this ->closing_day,
             // 'use_login' => isset($this->user),

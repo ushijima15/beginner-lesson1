@@ -25,7 +25,20 @@
                         <i class="far fa-lightbulb"></i> ヒント: Laravel側（バックエンド）のエラーは「storage\logs」に出力されます。 <br>
                     </div>
                     // ここにデータを表示(データの確認が必要)
-                    <dir>{{items}}</dir>
+                    <table class="table table-sm" key="processes">
+                        <thead>
+                            <tr>
+                                <th class="text-center bg-primary text-white">商品ID</th>
+                                <th class="text-center bg-primary text-white">商品名</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="item in items" key="index">
+                                <td class="text-center align-middle">{{item.id}}</td>
+                                <td class="text-center align-middle">{{item.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <hr>
                     <div class="quesion-header">２．新規テーブル（customers）を作成してそのデータを画面に表示しましょう</div>
                     <p>
@@ -55,7 +68,32 @@
                         routes\api.phpに <code>Route::get('customer', 'API\CustomerController@index');</code> を定義
                     </div>                   
                     // ここにデータを表示
-                    <dir>{{customer}}</dir> 
+                    <table class="table table-sm" key="processes">
+                        <thead>
+                            <tr>
+                                <th class="text-center bg-primary text-white">ID</th>
+                                <th class="text-center bg-primary text-white">顧客コード</th>
+                                <th class="text-center bg-primary text-white">顧客名</th>
+                                <th class="text-center bg-primary text-white">郵便番号</th>
+                                <th class="text-center bg-primary text-white">住所</th>
+                                <th class="text-center bg-primary text-white">電話番号</th>
+                                <th class="text-center bg-primary text-white">FAX</th>
+                                <th class="text-center bg-primary text-white">定休日</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="customer in customers" key="index">
+                                <td class="text-center align-middle">{{customer.id}}</td>
+                                <td class="text-center align-middle">{{customer.code}}</td>
+                                <td class="text-center align-middle">{{customer.name}}</td>
+                                <td class="text-center align-middle">{{customer.postal_code}}</td>
+                                <td class="text-center align-middle">{{customer.address}}</td>
+                                <td class="text-center align-middle">{{customer.tel}}</td>
+                                <td class="text-center align-middle">{{customer.fax}}</td>
+                                <td class="text-center align-middle">{{customer.closing_day}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -72,7 +110,7 @@ export default {
         return {
             results: null,
             items: null,
-            customer:null,
+            customers:null,
         }
     },
     mounted () {
@@ -80,7 +118,7 @@ export default {
         axios.get('/api/lesson/selector')
              .then(response =>(this.items =response.data))
         axios.get('/api/customer')
-             .then(response =>(this.customer =response.data))
+             .then(response =>(this.customers =response.data))
     },
     watch: {
         //
