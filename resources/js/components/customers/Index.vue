@@ -54,7 +54,7 @@ export default {
         }
     },
     mounted () {
-        //this.inspected_on = new moment().format('YYYY-MM-DD')
+        this.inspected_on = new moment().format('YYYY-MM-DD')
         this.getItems()
     },
     watch: {

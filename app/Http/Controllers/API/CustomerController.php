@@ -82,7 +82,7 @@ class CustomerController extends Controller
         if ($count) {
             return response()->json([
                 'result' => false,
-                'errorMessage' => '商品コードは既に登録されています。'
+                'errorMessage' => '顧客コードは既に登録されています。'
             ]);
         }
         
