@@ -55,7 +55,7 @@ export default {
     },
     mounted () {
         this.inspected_on = new moment().format('YYYY-MM-DD')
-        this.getItems()
+        this.getCustomers()
     },
     watch: {
         //
@@ -64,7 +64,7 @@ export default {
         //
     },
     methods: {
-        getItems: function () {
+        getCustomers: function () {
             this.isLoading = true;
             const api = axios.create()
             axios.all([

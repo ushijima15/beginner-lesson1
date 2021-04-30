@@ -121,9 +121,8 @@ export default {
                 tel: '',
                 fax: '',
                 closing_day: '',
-                // email: '',
-            },
-            
+                email: '',
+            },     
             invalid: false,
             errorMessage: '',
 
@@ -132,7 +131,7 @@ export default {
         }
     },
     created () {
-        this.getItems()
+        this.getCustomers()
     },
     watch: {
         // 
@@ -155,7 +154,7 @@ export default {
         },
     },
     methods: {
-        getItems: function () {
+        getCustomers: function () {
             this.isLoading = true;
             const api = axios.create()
             if (this.mode == "create") {

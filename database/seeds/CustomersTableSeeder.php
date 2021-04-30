@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Customer;
-use App\Department;
+//use App\Department;
 class CustomersTableSeeder extends Seeder
 {
     
