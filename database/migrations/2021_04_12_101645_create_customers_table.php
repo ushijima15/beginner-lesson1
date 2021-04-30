@@ -23,7 +23,7 @@ class CreateCustomersTable extends Migration
             $table->string('fax')->comment('FAX');
             $table->string('closing_day')->comment('定休日');
             $table->softDeletes();
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

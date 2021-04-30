@@ -9,7 +9,6 @@ use App\Http\Resources\CustomerForShow as CustomerForShowResource;
 use App\Http\Resources\CustomerSelector as CustomerSelectorResource;
 use App\Http\Resources\CustomerForSelector as CustomerForSelectorResource;
 use App\Customer;
-use App\User;
 
 class CustomerController extends Controller
 {
@@ -36,16 +35,16 @@ class CustomerController extends Controller
         DB::transaction(function () use ($request) {
 
 
-            $customers= new Customer;
-            $customers->timestamps =false;
-            $customers->save();
-            $customers->code = $request->customer['code'];
-            $customers->name = $request->customer['name'];
-            $customers->postal_code = $request->customer['postal_code'];
-            $customers->tel = $request->customer['tel'];
-            $customers->fax = $request->customer['fax'];
-            $customers->closing_day = $request->customer['closing_day'];
-            $customers->address = $request->customer['address'];
+            $customer= new Customer;
+            $customer->timestamps =false;
+            $customer->save();
+            $customer->code = $request->customer['code'];
+            $customer->name = $request->customer['name'];
+            $customer->postal_code = $request->customer['postal_code'];
+            $customer->tel = $request->customer['tel'];
+            $customer->fax = $request->customer['fax'];
+            $customer->closing_day = $request->customer['closing_day'];
+            $customer->address = $request->customer['address'];
             // $user->email = $request->employee['email'] ?: '';
 
             
@@ -89,14 +88,14 @@ class CustomerController extends Controller
         }
         
         DB::transaction(function () use ($request, $customer) {
-            $user = $customer->user;
-            if (!isset($user)) $user = new User;
-            $user->name =  $request->customer['name'];
+            //$user = $customer->user;
+            //if (!isset($user)) $user = new User;
+            //$user->name =  $request->customer['name'];
             // $user->email = $request->employee['email'] ?: '';
-            if (array_key_exists('address', $request->customer) && $request->customer['address']) {
-                $user->password = bcrypt($request->customer['address']);
-            }
-            $user->save();            
+            //if (array_key_exists('address', $request->customer) && $request->customer['address']) {
+            //    $user->password = bcrypt($request->customer['address']);
+            //}
+            //$user->save();            
             $customer->code = $request->customer['code'];
             $customer->name = $request->customer['name'];
             $customer->postal_code = $request->customer['postal_code'];
