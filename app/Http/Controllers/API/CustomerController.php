@@ -87,14 +87,6 @@ class CustomerController extends Controller
         }
         
         DB::transaction(function () use ($request, $customer) {
-            //$user = $customer->user;
-            //if (!isset($user)) $user = new User;
-            //$user->name =  $request->customer['name'];
-            // $user->email = $request->employee['email'] ?: '';
-            //if (array_key_exists('address', $request->customer) && $request->customer['address']) {
-            //    $user->password = bcrypt($request->customer['address']);
-            //}
-            //$user->save();            
             $customer->code = $request->customer['code'];
             $customer->name = $request->customer['name'];
             $customer->postal_code = $request->customer['postal_code'];
