@@ -50,8 +50,9 @@ export default {
     mounted () {
         axios.get('https://randomuser.me/api/')
             .then(response => (this.items = response))
-        //axios.get('http://smsurf.app-rox.com/api/')
-        axios.get('API\CustomerController@index')
+        //axios.get('API\CustomerController@index')
+        //
+        axios.get('http://smsurf.app-rox.com/api/')
              .then(response =>(this.items2 =response))
     },
     watch: {

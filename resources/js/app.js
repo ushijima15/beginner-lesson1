@@ -96,7 +96,7 @@ const router = new VueRouter({
         // 顧客
         { name: 'customer', path: '/customer', component: require('./components/customers/Index.vue').default },
         { name: 'customer.create', path: '/customer/create', component: require('./components/customers/CreateUpdate.vue').default },
-        { name: 'customer.show', path: '/customer/show/:employee_id', component: require('./components/customers/CreateUpdate.vue').default, props: true },
+        { name: 'customer.show', path: '/customer/show/:customer_id', component: require('./components/customers/CreateUpdate.vue').default, props: true },
 
         // 従業員
         { name: 'employee', path: '/employee', component: require('./components/employees/Index.vue').default },
