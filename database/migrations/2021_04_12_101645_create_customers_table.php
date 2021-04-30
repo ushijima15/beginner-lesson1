@@ -20,8 +20,8 @@ class CreateCustomersTable extends Migration
             $table->string('postal_code')->nullable()->comment('郵便番号');
             $table->string('address')->nullable()->comment('住所');
             $table->string('tel')->nullable()->comment('電話番号');
-            $table->string('fax')->comment('FAX');
-            $table->string('closing_day')->comment('定休日');
+            $table->string('fax')->nullable()->comment('FAX');
+            $table->string('closing_day')->nullable()->comment('定休日');
             $table->softDeletes();
             $table->timestamps();
         });
