@@ -52,8 +52,15 @@ export default {
             .then(response => (this.items = response))
         //axios.get('API\CustomerController@index')
         //
-        axios.get('https://www.googleapis.com/youtube/v3/search')
-             .then(response =>(this.items2 =response))
+        axios.get('https://www.googleapis.com/youtube/v3/search', {
+          params: this.params,
+          headers: {
+            'Access-Control-Allow-Origin': 'http://127.0.0.1:8000/',
+            'Access-Control-Allow-Headers': 'Content-type',
+            'Access-Control-Allow-Methods' : 'GET, POST, PUT, DELETE, OPTIONS',
+          },
+        })
+            .then(response =>(this.items2 =response))
     },
     watch: {
         //
