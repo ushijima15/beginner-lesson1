@@ -76,6 +76,7 @@ class CustomerController extends Controller
     public function update(Request $request, Customer $customer)
     {
         $count = Customer::where([
+            ['id', '<>', $customer->id],
             ['code', $request->customer['code']]
         ])->count();
         if ($count) {
