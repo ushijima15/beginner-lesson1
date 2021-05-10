@@ -132,10 +132,10 @@ export default {
             // routes/api.phpにルーティングを設定する
             // Route::get('lesson/selector', 'API\LessonController@index');
             // ↑これがControllerとの紐づけ定義
-            const {data} = await axios.get('/api/lesson/selector')
-            this.results = data
-            const {data2} = await axios.get('/api/lesson/customer')
-            this.results = data2
+            //const {data} = await axios.get('/api/lesson/selector')
+            //this.results = data
+            //const {data2} = await axios.get('/api/lesson/customer')
+            //this.results = data2
         },
         onBack() {
             this.$router.push({ name: 'home' })
