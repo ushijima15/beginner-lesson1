@@ -19,13 +19,12 @@
                     <table class="table-custom" key="processes">
                         <thead>
                             <tr>
-                                <th class="text-center">氏名</th>
-                                <th class="text-center">フリガナ</th>
-                                <th class="text-center">ID</th>
-                                <th class="text-center">権限</th>
+                                <th class="text-center align-middle">氏名</th>
+                                <th class="text-center align-middle">フリガナ</th>
+                                <th class="text-center align-middle">ID</th>
+                                <th class="text-center align-middle">権限</th>
                             </tr>
                         </thead>
-                        
                         <tbody>
                             <tr v-for="employee in employees" class="clickable" :key="employee.id" @click="onShow(employee.id)">
                                 <td class="text-center align-middle">{{employee.full_name}}</td>
@@ -76,7 +75,6 @@ export default {
                 api.get('/api/employee'),
             ]).then(axios.spread((res1, res2, res3, res4) => {
                 this.employees = res1.data
-                
                 this.isLoading = false
             }))
         },

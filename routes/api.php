@@ -58,6 +58,5 @@ Route::middleware(['auth:api'])->group(function () {
     Route::delete('item/{item}', 'API\ItemController@destroy');
     Route::get('item/selector', 'API\ItemController@selector');
     Route::get('lesson/selector', 'API\LessonController@selector');
-    ////
 
 });

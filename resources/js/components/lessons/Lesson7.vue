@@ -111,6 +111,7 @@ export default {
             results: null,
             items: null,
             customers:null,
+            people:null,
         }
     },
     mounted () {
@@ -119,6 +120,7 @@ export default {
              .then(response =>(this.items =response.data))
         axios.get('/api/customer')
              .then(response =>(this.customers =response.data))
+        console.log(this.customers)
     },
     watch: {
         //
@@ -134,8 +136,8 @@ export default {
             // ↑これがControllerとの紐づけ定義
             //const {data} = await axios.get('/api/lesson/selector')
             //this.results = data
-            //const {data2} = await axios.get('/api/lesson/customer')
-            //this.results = data2
+            //const  people = await axios.get('/api/lesson/customer')
+            //this.results = people.data
         },
         onBack() {
             this.$router.push({ name: 'home' })
