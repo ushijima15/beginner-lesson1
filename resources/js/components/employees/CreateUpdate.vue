@@ -247,7 +247,6 @@ export default {
                 })
                 .then(function (resp) {
                     if (resp.data.result) {
-                        alert('更新しました。')
                         _this.$router.go(-1)
                     } else {
                         _this.errorMessage = resp.data.errorMessage
@@ -263,13 +262,9 @@ export default {
             this.$router.go(-1)
         },
         onDelete: function () {
-            if (!confirm('削除してもよろしいですか？')) {
-                return
-            }
             let _this = this
             axios.delete('/api/employee/'+this.employee.id)
             .then(function (resp) {
-                alert('削除しました。')
                 _this.$router.go(-1)
             })
             .catch(function (resp) {
